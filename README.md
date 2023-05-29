@@ -1,6 +1,6 @@
 # Books Store
 
-<img src="https://2u.pw/G0KXeQ" alt="Books Store" width="100%" height="85%" style="object-fit:cover;object-position:bottom;">
+![Books Store](https://2u.pw/G0KXeQ)
 
 Books Store is a professional web application aimed at creating an online platform for buying and selling books. The project allows users to browse a wide range of books and easily and securely make purchases.
 
