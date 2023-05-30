@@ -1,5 +1,11 @@
 <?php include 'header.php'; ?>
 
+<?php
+$sql = "SELECT * FROM books WHERE category = 'action'";
+$result = mysqli_query($conn, $sql);
+# $row = mysqli_fetch_assoc($result)
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +76,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item"><a href="action_category.php">Action</a></li>
+        <li class="breadcrumb-item"><a href="action_category.php"><?php echo 'action' ?></a></li>
         <li class="breadcrumb-item active" aria-current="page">Data</li>
       </ol>
     </nav>
@@ -82,24 +88,17 @@
       <div class="content">
         <h3 class="mb-4">Explore our latest books</h3>
         <div class="box mt-5 d-flex justify-content-center flex-wrap">
+          <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <div class="card mx-3 mb-4 mt-auto" style="width: 18rem">
-            <img src="imgs/01.jpg" class="card-img-top" alt="..." />
+            <img src="imgs/<?php echo $row['image'] ?>" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title text-start"><bdi>انت لي</bdi></h5>
-              <p class="card-text text-start">Est sit id voluptat</p>
-              <a href="book-details_1.php" class="btn d-block btn-dark rounded-2">Read More</a>
+              <h5 class="card-title text-start"><bdi><?php echo $row['name'] ?></bdi></h5>
+              <p class="card-text text-start"><?php echo $row['ShortDescription'] ?></p>
+              <a href="book-details.php?id=<?php echo $row['id'] ?>" class="btn d-block btn-dark rounded-2">Read
+                More</a>
             </div>
           </div>
-          <div class="card mx-3 mb-4 mt-auto" style="width: 18rem">
-            <img src="imgs/02.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title text-start">
-                <bdi>دع القلق وابدا الحياة</bdi>
-              </h5>
-              <p class="card-text text-start">Esse quis et et Nam</p>
-              <a href="book-details_2.php" class="btn d-block btn-dark rounded-2">Read More</a>
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </div>

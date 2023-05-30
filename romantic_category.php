@@ -1,5 +1,11 @@
 <?php include 'header.php'; ?>
 
+<?php
+$sql = "SELECT * FROM books WHERE category = 'romantic'";
+$result = mysqli_query($conn, $sql);
+# $row = mysqli_fetch_assoc($result)
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,9 +30,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
 </head>
 
 <body>
@@ -35,8 +39,7 @@
     <nav class="navbar navbar-expand-lg bg-black">
       <div class="container">
         <a class="navbar-brand" href="index.php">Books Store</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
@@ -45,19 +48,19 @@
               <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <?php if (isset($_SESSION['user_id'])) { ?>
-            <li class="nav-item">
-              <a class="nav-link" href="add-to-cart.php">Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="logout.php">Logout</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="add-to-cart.php">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
+              </li>
             <?php } else { ?>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">Register</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="register.php">Register</a>
+              </li>
             <?php } ?>
           </ul>
         </div>
@@ -82,14 +85,17 @@
       <div class="content">
         <h3 class="mb-4">Explore our latest books</h3>
         <div class="box mt-5 d-flex justify-content-center flex-wrap">
-          <div class="card mx-3 mb-4 mt-auto" style="width: 18rem">
-            <img src="imgs/03.jpg" class="card-img-top" style="height: 430px; object-fit: cover" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title text-start"><bdi>استمتع بحياتك</bdi></h5>
-              <p class="card-text text-start">Maiores et ratione v</p>
-              <a href="book-details_3.php" class="btn d-block btn-dark rounded-2">Read More</a>
+          <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            <div class="card mx-3 mb-4 mt-auto" style="width: 18rem">
+              <img src="imgs/<?php echo $row['image'] ?>" class="card-img-top" style="height: 430px; object-fit: cover" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title text-start"><bdi><?php echo $row['name'] ?></bdi></h5>
+                <p class="card-text text-start"><?php echo $row['ShortDescription'] ?></p>
+                <a href="book-details.php?id=<?php echo $row['id'] ?>" class="btn d-block btn-dark rounded-2">Read
+                  More</a>
+              </div>
             </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </div>

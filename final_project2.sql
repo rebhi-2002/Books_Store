@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 09:07 PM
+-- Generation Time: May 31, 2023 at 01:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -32,17 +32,21 @@ CREATE TABLE `books` (
   `name` varchar(200) NOT NULL,
   `image` varchar(200) NOT NULL,
   `price` varchar(7) NOT NULL,
-  `serial` varchar(200) NOT NULL
+  `serial` varchar(200) NOT NULL,
+  `ShortDescription` varchar(200) NOT NULL,
+  `FullDescription` text NOT NULL,
+  `author` varchar(200) NOT NULL,
+  `category` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`id`, `name`, `image`, `price`, `serial`) VALUES
-(1, 'انت لي', '01.jpg', '125', '600391735'),
-(2, 'دع القلق وابدا الحياة', '02.png', '5', '75336116'),
-(3, 'استمتع بحياتك', '03.jpg', '7', '2003017683');
+INSERT INTO `books` (`id`, `name`, `image`, `price`, `serial`, `ShortDescription`, `FullDescription`, `author`, `category`) VALUES
+(1, 'انت لي', '01.jpg', '125', '600391735', 'Maiores et ratione v', 'Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu', 'د.منى المرشود', 'action'),
+(2, 'دع القلق وابدا الحياة', '02.png', '5', '75336116', 'Esse quis et et Nam', 'Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu', 'ديل كارنيجي', 'action'),
+(3, 'استمتع بحياتك', '03.jpg', '7', '2003017683', 'Maiores et ratione v', 'Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu', 'د.محمد بن عبد الرحمن العريفي', 'romantic');
 
 -- --------------------------------------------------------
 
@@ -64,11 +68,11 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `book_name`, `book_image`, `book_price`, `user_id`, `quantity`) VALUES
-(48, 'دع القلق وابدا الحياة', '02.png', '5', 1, ''),
-(49, 'استمتع بحياتك', '03.jpg', '7', 1, ''),
-(50, 'استمتع بحياتك', '03.jpg', '7', 1, ''),
-(51, 'دع القلق وابدا الحياة', '02.png', '5', 1, ''),
-(52, 'انت لي', '01.jpg', '125', 1, '');
+(73, 'دع القلق وابدا الحياة', '02.png', '5', 1, ''),
+(74, 'انت لي', '01.jpg', '125', 1, ''),
+(75, 'Merritt Harper', '', '546', 1, ''),
+(76, 'دع القلق وابدا الحياة', '02.png', '5', 1, ''),
+(77, 'انت لي', '01.jpg', '125', 1, '');
 
 -- --------------------------------------------------------
 
@@ -86,12 +90,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Mohammed Naji'),
-(2, 'Zina Mohammed'),
-(3, 'Rebhe Ibrahim'),
-(4, 'sport'),
-(6, 'rebhe'),
-(7, 'm');
+(1, 'Action'),
+(2, 'Drama'),
+(3, 'Romantic');
 
 -- --------------------------------------------------------
 
@@ -113,12 +114,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `type`) VALUES
 (1, 'Mohammed Naji', 'moh@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'user'),
-(2, 'Zina Mohammed', 'zina@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'admin'),
-(3, 'Rebhe Ibrahim', 'rebhe2002@gmail.com', 'ed00f46333f1ac71a7bcf3040c9f397767721ecd', 'user'),
-(21, 'Samuel Osborne', 'tukyxiqyno@mailinator.com', '$2y$10$qpR.mBxzYGe/0rmbw89TTuZsKeItP4QcIX0mdj7MpOjUR4pt64TUy', 'user'),
-(22, 'Kelly Hayes', 'mobesira@mailinator.com', '$2y$10$pZLkOeGYnrgmdDzxCfhf8OdfFjHfvUy5ATAKQ36xXvgz4wQ.79M56', 'user'),
-(23, 'Shelby George', 'fetylaripe@mailinator.com', '$2y$10$gG.grTupkRY3PwNhSuJMIuI3yenB9UAsq4HKl0ljUn9M.NYqxfoKW', 'user'),
-(24, 'Rhona Valentine', 'rizulatuq@mailinator.com', '$2y$10$amHdI72wXdAvoEiEzXlPPuhUHRt2E6X4gtLXCcPZ5ipOlFj7cLEfa', 'user');
+(2, 'Zina Mohammed', 'zina@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -156,25 +152,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

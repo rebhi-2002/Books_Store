@@ -1,4 +1,13 @@
-<?php include 'header.php'; ?>
+<?php
+
+include 'header.php';
+
+
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $sql = "SELECT * FROM books WHERE id = $id";
+  $result = mysqli_query($conn, $sql);
+  while ($row = mysqli_fetch_assoc($result)) { ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +79,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item"><a href="book-details_2.php"><bdi>دع القلق وابدا الحياة</bdi></a></li>
+        <li class="breadcrumb-item"><a href="book-details.php"><bdi><?php echo $row['name'] ?></bdi></a></li>
         <li class="breadcrumb-item active" aria-current="page">Data</li>
       </ol>
     </nav>
@@ -83,17 +92,17 @@
         <div class="col-md-5">
           <div class="my-3 img-box">
             <img class="img3 figure-img img-fluid img-thumbnail position-relative start-50 translate-middle-x"
-              src="imgs/02.png" alt="" />
+              src="imgs/<?php echo $row['image'] ?>" alt="" />
           </div>
         </div>
         <div class="col-md-7">
           <div class="info-box">
-            <p class="fs-3 m-auto"><bdi>دع القلق وابدا الحياة</bdi></p>
-            <span>Price: <span class="text-danger">5.00$</span></span>
+            <p class="fs-3 m-auto"><bdi><?php echo $row['name'] ?></bdi></p>
+            <span>Price: <span class="text-danger"><?php echo $row['price'] ?>.00$</span></span>
             <hr />
-            <p class="fs-14">Maiores et ratione v</p>
+            <p class="fs-14"><?php echo $row['ShortDescription'] ?></p>
             <?php if (isset($_SESSION['user_id'])) { ?>
-            <a href="add-to-cart.php?id=2" class="btn btn-success mt-3 mb-5 py-2 px-4 rounded-1">
+            <a href="add-to-cart.php?id=<?php echo $row["id"] ?>" class="btn btn-success mt-3 mb-5 py-2 px-4 rounded-1">
               <i class="fa-solid fa-cart-shopping me-2"></i>Add To Cart
             </a>
             <?php } ?>
@@ -103,13 +112,7 @@
       <div class="desc">
         <h4>Description</h4>
         <p class="fs-14 mt-3 mb-5">
-          Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu
-          Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu
-          Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu
-          Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu
-          Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu
-          Dolorem quis et atqu Dolorem quis et atqu Dolorem quis et atqu
-          Dolorem quis et atqu Dolorem quis et atqu
+          <?php echo $row["FullDescription"] ?>
         </p>
       </div>
     </div>
@@ -155,3 +158,6 @@
 </body>
 
 </html>
+
+<?php }
+} ?>

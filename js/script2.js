@@ -1,27 +1,3 @@
-let list = document.querySelectorAll(".dashboard  .dash-list li a");
-let box = document.querySelectorAll(".dashboard .tab-box > div");
-
-list.forEach((li) => {
-  li.addEventListener("click", (el) => {
-    el.preventDefault();
-
-    box.forEach((e) => {
-      e.classList.remove("active");
-      e.classList.add("hidden");
-    });
-
-    document
-      .querySelector(`${el.target.dataset.filter}`)
-      .classList.toggle("hidden");
-
-    list.forEach((c) => {
-      c.classList.remove("color");
-    });
-
-    li.classList.add("color");
-  });
-});
-
 let button = document.querySelectorAll(".dashboard .tab-box .tab-2 a");
 let btn1 = document.querySelector(".dashboard .tab-box .tab-2 a.btn1");
 let btn2 = document.querySelector(".dashboard .tab-box .tab-2 a.btn2");
