@@ -36,28 +36,34 @@ if (isset($_POST['update'])) {
     <form class="form" action="" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="serial" class="form-label">Serial</label>
-        <input type="text" class="form-control" id="serial" name="serial" value="<?php echo $book['serial'] ?>" placeholder="Serial no." required />
+        <input type="text" class="form-control" id="serial" name="serial" value="<?php echo $book['serial'] ?>"
+          placeholder="Serial no." required />
       </div>
       <div class="mb-3">
         <label for="name" class="form-label">Title</label>
-        <input type="text" class="form-control" id="name" name="name" value="<?php echo $book['name'] ?>" placeholder="Title" required />
+        <input type="text" class="form-control" id="name" name="name" value="<?php echo $book['name'] ?>"
+          placeholder="Title" required />
       </div>
       <div class="mb-3">
         <label for="formFileMultiple" class="form-label">Image</label>
-        <input type="file" class="form-control" id="formFileMultiple" name="image" value="<?php echo $book['image'] ?>" placeholder="Image" multiple required onchange="showSelectedFiles()" />
+        <input type="file" class="form-control" id="formFileMultiple" name="image" value="<?php echo $book['image'] ?>"
+          placeholder="Image" multiple required onchange="showSelectedFiles()" />
         <div id="selectedFiles" class="d-flex justify-content-start align-items-center flex-wrap"></div>
       </div>
       <div class="mb-3">
         <label for="price" class="form-label">price</label>
-        <input type="number" min="0" class="form-control" id="price" name="price" value="<?php echo $book['price'] ?>" placeholder="Price" required />
+        <input type="number" min="0" class="form-control" id="price" name="price" value="<?php echo $book['price'] ?>"
+          placeholder="Price" required />
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Short Description</label>
-        <textarea name="ShortDescription" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Short Description" required style="height: 65px"></textarea>
+        <textarea name="ShortDescription" class="form-control" id="exampleFormControlTextarea1" rows="3"
+          placeholder="Short Description" required style="height: 65px"></textarea>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea2" class="form-label">Full Description</label>
-        <textarea name="FullDescription" class="form-control" id="exampleFormControlTextarea2" rows="3" placeholder="Full Description" required></textarea>
+        <textarea name="FullDescription" class="form-control" id="exampleFormControlTextarea2" rows="3"
+          placeholder="Full Description" required></textarea>
       </div>
       <div class="mb-3">
         <label class="form-label" for="inputGroupSelect01">
@@ -106,8 +112,8 @@ if (isset($_POST['update'])) {
           <option value="Web Development">Web Development</option>
         </select>
       </div>
-      <button class="add2 btn btn-success mt-3 border-0 w-25" name="update">
-        Add
+      <button class="add2 btn btn-info mt-3 border-0 w-25" name="update">
+        Update
       </button>
     </form>
   </div>

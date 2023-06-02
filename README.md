@@ -2,6 +2,9 @@
 - [Responsive Books Store](#responsive-books-store)
   - [Dashboard Features:](#dashboard-features)
   - [User Features:](#user-features)
+  - [User Search Functionality:](#user-search-functionality)
+  - [Admin Search Functionality:](#admin-search-functionality)
+  - [No Results Found:](#no-results-found)
   - [Database Import](#database-import)
     - [For XAMPP:](#for-xampp)
     - [For WAMP:](#for-wamp)
@@ -15,7 +18,6 @@
   - [Usage](#usage)
   - [Contribution](#contribution)
   - [License](#license)
-
 
 # Responsive Books Store
 
@@ -47,6 +49,24 @@ The website also includes two pages at the end:
 - **Blog:** Coming soon.
 
 For users who are not logged in, they are unable to purchase books or add them to the shopping cart. They also cannot view all available books and other additional features unless they log in.
+
+## User Search Functionality:
+
+- Users have the ability to search for books using a dedicated search field.
+- The search criteria include book name, price, serial number, author name, and category.
+- The search results are displayed elegantly, showcasing the book's image, name, price, and a dedicated link for more details.
+
+## Admin Search Functionality:
+
+- Admins are provided with advanced search capabilities, leading them to a comprehensive results page.
+- The results page showcases the book's image, name, publication date, and other relevant information.
+- Admins have convenient options to delete or edit the book's details.
+- Deletion is performed seamlessly within the same page, while editing redirects to a separate page for further modifications.
+
+## No Results Found:
+
+- In case no search results are found, a clear and user-friendly message is displayed: "No results found."
+- This ensures both users and admins are informed when their search query yields no matches.
 
 ## Database Import
 
@@ -159,4 +179,4 @@ If you would like to contribute to the Books Store web application, you can foll
 
 ## License
 
-The Books Store web application is released under the [MIT License](https://opensource.org/licenses/MIT). You are free to use, modify, and distribute the application as per the terms of the license.
+The Books Store web application is protected by copyright. © Rebhe Ibrahim.

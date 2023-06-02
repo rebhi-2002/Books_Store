@@ -19,6 +19,7 @@
           <td>Full Description</td>
           <td>Author</td>
           <td>Category</td>
+          <td>CurrentDateTime</td>
           <td>Actions</td>
         </tr>
       </thead>
@@ -43,6 +44,7 @@
             </td>
             <td data-label="Author"><?php echo $row['author'] ?></td>
             <td data-label="Category"><?php echo $row['category'] ?></td>
+            <td data-label="created_at"><?php echo $row['created_at'] ?></td>
             <td data-label="Actions">
               <a href="editbook.php?edit=<?php echo $row['id'] ?>">
                 <i class="icon-ed fa-regular fa-pen-to-square text-white bg-primary p-2 rounded-1"></i>

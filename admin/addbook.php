@@ -11,20 +11,14 @@ if (isset($_POST['add'])) {
   $FullDescription = $_POST['FullDescription'];
   $author = $_POST['author'];
   $category = $_POST['category'];
-  $sql = "INSERT INTO books (serial, name, image, price, ShortDescription, FullDescription, author, category) VALUES ('$serial', '$title', '$img', '$price', '$ShortDescription', '$FullDescription', '$author', '$category')";
+  $currentDateTime = date('Y-m-d H:i:s');
+  $sql = "INSERT INTO books (serial, name, image, price, ShortDescription, FullDescription, author, category, created_at) VALUES ('$serial', '$title', '$img', '$price', '$ShortDescription', '$FullDescription', '$author', '$category', '$currentDateTime')";
   if (mysqli_query($conn, $sql)) {
     header("Location: books.php");
   }
 }
 
 ?>
-
-
-
-
-
-
-
 
 <div class="tab-4 p-4">
   <div id="second-2" class="">
@@ -44,8 +38,7 @@ if (isset($_POST['add'])) {
       </div>
       <div class="mb-3">
         <label for="formFileMultiple" class="form-label">Image</label>
-        <input type="file" class="form-control" id="formFileMultiple" name="image" placeholder="Image" multiple required
-          onchange="showSelectedFiles()" />
+        <input type="file" class="form-control" id="formFileMultiple" name="image" placeholder="Image" multiple required onchange="showSelectedFiles()" />
         <div id="selectedFiles" class="d-flex justify-content-start align-items-center flex-wrap"></div>
       </div>
       <div class="mb-3">
@@ -54,13 +47,11 @@ if (isset($_POST['add'])) {
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Short Description</label>
-        <textarea name="ShortDescription" class="form-control" id="exampleFormControlTextarea1" rows="3"
-          placeholder="Short Description" required style="height: 65px"></textarea>
+        <textarea name="ShortDescription" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Short Description" required style="height: 65px"></textarea>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea2" class="form-label">Full Description</label>
-        <textarea name="FullDescription" class="form-control" id="exampleFormControlTextarea2" rows="3"
-          placeholder="Full Description" required></textarea>
+        <textarea name="FullDescription" class="form-control" id="exampleFormControlTextarea2" rows="3" placeholder="Full Description" required></textarea>
       </div>
       <div class="mb-3">
         <label class="form-label" for="inputGroupSelect01">

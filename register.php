@@ -5,9 +5,13 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $name = $_POST['name'];
   $email = $_POST['email'];
+  $url = $_POST['url'];
+  $age = $_POST['age'];
+  $phone = $_POST['phone'];
+  $country = $_POST['country'];
   $pass = $_POST['pass'];
-  $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
-  $sql = "INSERT INTO users ( name, email, password, type) VALUES ( '$name', '$email', '$hashedPassword', 'user')";
+  $hashedPassword = sha1($pass);
+  $sql = "INSERT INTO users (name, email, url, age, phone, country, password,  type) VALUES ( '$name', '$email', '$url', '$age', '$phone', '$country', '$hashedPassword', 'user')";
   if (mysqli_query($conn, $sql)) {
     $id = mysqli_affected_rows($conn);
     $_SESSION['user_id'] = $id;
@@ -94,19 +98,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="mb-3">
           <label for="url" class="form-label">URL</label>
-          <input type="url" class="form-control" id="url" placeholder="https://example.com" required />
+          <input type="url" class="form-control" id="url" placeholder="https://example.com" name="url" required />
         </div>
         <div class="mb-3">
           <label for="age" class="form-label">Age</label>
-          <input type="text" class="form-control" id="age" placeholder="18" required />
+          <input type="text" class="form-control" id="age" placeholder="Your Age" name="age" required />
         </div>
         <div class="mb-3">
           <label for="phone-no" class="form-label">Phone Number</label>
-          <input type="tel" class="form-control" id="phone-no" placeholder="Phone Number" required />
+          <input type="tel" class="form-control" id="phone-no" placeholder="Phone Number" name="phone" required />
         </div>
         <div class="mb-3">
           <label for="country" class="form-label">Country</label>
-          <input type="text" class="form-control" id="country" placeholder="Country" required />
+          <input type="text" class="form-control" id="country" placeholder="Country" name="country" required />
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>

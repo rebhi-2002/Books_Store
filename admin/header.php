@@ -109,9 +109,9 @@ if (!isset($_SESSION['is_admin'])) {
         </div>
         <div class="info-dash col-sm-8 col-md-9 col-lg-10 p-0">
           <div class="info d-flex">
-            <div class="w-75">
-              <input type="text" class="search form-control ps-3 shadow-none border-0 text-light h-100 rounded-0" placeholder="Search" />
-            </div>
+            <form class="input-group w-75" action="search.php" method="GET">
+              <input name="query" type="search" class="search form-control ps-3 shadow-none border-0 text-light h-100 rounded-0" placeholder="Search" />
+            </form>
             <div class="text-center w-25">
               <a class="button btn btn-dark text-secondary d-flex justify-content-center align-items-center w-100 h-100 d-block rounded-0" href="../logout.php">Sign out</a>
             </div>
