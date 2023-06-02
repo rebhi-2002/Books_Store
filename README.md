@@ -5,6 +5,7 @@
   - [User Search Functionality:](#user-search-functionality)
   - [Admin Search Functionality:](#admin-search-functionality)
   - [No Results Found:](#no-results-found)
+  - [Content Modifiability](#content-modifiability)
   - [Database Import](#database-import)
     - [For XAMPP:](#for-xampp)
     - [For WAMP:](#for-wamp)
@@ -67,6 +68,14 @@ For users who are not logged in, they are unable to purchase books or add them t
 
 - In case no search results are found, a clear and user-friendly message is displayed: "No results found."
 - This ensures both users and admins are informed when their search query yields no matches.
+
+## Content Modifiability
+
+- All content on the website is dynamically modifiable.
+- Except for the following static pages (created for testing purposes):
+    - `book-details_4.php`
+    - `book-details_5.php`
+    - `book-details_6.php`
 
 ## Database Import
 
