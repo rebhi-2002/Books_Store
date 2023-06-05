@@ -1,3 +1,11 @@
+<!--
+  * Thanks for downloading!
+  * Project Name: Books Store.
+  * Version: 2.3.0.
+  * Author: Rebhe Ibrahim.
+  * License: You can find the licensing details at the following link: https://github.com/rebhi-2002/Books_Store.
+-->
+
 ## Table of Contents
 - [Responsive Books Store](#responsive-books-store)
   - [Dashboard Features:](#dashboard-features)
@@ -18,6 +26,7 @@
   - [Installation](#installation)
   - [Usage](#usage)
   - [Contribution](#contribution)
+  - [Future Plans](#future-plans)
   - [License](#license)
 
 # Responsive Books Store
@@ -32,7 +41,7 @@ The website consists of the following components:
 - Add, edit, and delete categories.
 - Edit and delete authors.
 - Add, edit, and delete books.
-- Edit and delete users.
+- Add, edit, and delete users.
 
 **Note:** Any changes made to the options mentioned above will be applied directly when working with the user.
 
@@ -185,6 +194,18 @@ If you would like to contribute to the Books Store web application, you can foll
 2. Make your desired changes or add new features to your forked repository.
 3. Submit a pull request detailing your changes and improvements.
 4. Your contributions will be reviewed, and if approved, merged into the main project.
+
+## Future Plans
+In the near future, I plan to undertake the following tasks:
+
+- :books: Enhance the Books section by adding detailed descriptions and uploading images.
+- :key: login.php When the user enters an incorrect password, the email associated with the user should remain in the email field.
+- :shopping_cart: Assign a unique user_id to each user for purchasing operations in the Cart.
+- :bar_chart: Set the active color to #0d6efd !important in the Dashboard.
+- :mag_right: Enable search functionality in index.php without the need to press the enter key.
+- :envelope: Enable message sending in index.php.
+- Images for the entire project. :camera: :art: :computer: :memo:
+- :shield: Implementing additional measures to enhance security, such as data encryption, improving access policies, and using robust guidelines.
 
 ## License
 
